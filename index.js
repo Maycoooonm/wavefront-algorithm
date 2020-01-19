@@ -28,7 +28,6 @@ function drawPath() {
 	let contador = 0;
 	while(ultNumber != 0) {
 		contador++;
-		if(contador > 900) {console.log('algo deu errado'); ultNumber = 0}
 		let tempCords = []
 		if(typeof matrixWaveFront[cords.i-1] != 'undefined') tempCords.push({i: cords.i-1, j: cords.j})
 		if(typeof matrixWaveFront[cords.i+1] != 'undefined') tempCords.push({i: cords.i+1, j: cords.j})
@@ -47,6 +46,7 @@ function drawPath() {
 		if(matrixWaveFront[tempCords[2].i][tempCords[2].j] < matrixWaveFront[tempCords[1].i][tempCords[1].j] && matrixWaveFront[tempCords[2].i][tempCords[2].j] < matrixWaveFront[tempCords[0].i][tempCords[0].j]) cords = tempCords[2];
 		ultNumber = matrixWaveFront[cords.i][cords.j];
 		cordsArray.push(cords);
+		if(contador > 900) {console.log('algo deu errado'); ultNumber = 0}
 	}
 	cordsArray.forEach((cordenada, i) => {
 		push();
